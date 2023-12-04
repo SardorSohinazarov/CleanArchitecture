@@ -1,8 +1,6 @@
 ﻿using Application.useCases.Product.Commands;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Product = Domain.Entities.Product;
 
 namespace Presentation.Controllers
 {
@@ -13,9 +11,7 @@ namespace Presentation.Controllers
         private readonly IMediator _mediator;
 
         public ProductsController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
+            => _mediator = mediator;
 
         [HttpPost]
         public async ValueTask<IActionResult> AddAsync(string name)

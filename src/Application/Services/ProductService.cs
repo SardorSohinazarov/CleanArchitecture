@@ -4,14 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services
 {
-    public class ProductService:IProductService
+    public class ProductService : IProductService
     {
         private readonly IApplicationDbContext _context;
 
         public ProductService(IApplicationDbContext context)
-        {
-            _context = context;
-        }
+            => _context = context;
 
         public async ValueTask<Product> AddProductAsync(Product product)
         {
