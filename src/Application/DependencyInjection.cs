@@ -1,4 +1,5 @@
-﻿using Application.Services;
+﻿using Application.Behaviors;
+using Application.Services;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -11,6 +12,7 @@ namespace Application
         {
             services.AddScoped<IProductService, ProductService>();
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddScoped(typeof(IPipelineBehavior<,>),typeof(LoggingBehavior<,>));
 
             return services;
         }
